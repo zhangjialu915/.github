@@ -1,0 +1,18 @@
+orgs:
+  auto-manage-org:
+    description: this is a demo for manage org
+    default_repository_permission: read
+    has_organization_projects: true
+    has_repository_projects: true
+    members_can_create_repositories: true
+    admins:
+    - huiwangredhat
+    members:
+    - huiwangredhat
+    repos:
+      ".github":
+        default_branch: main
+        description: demo
+        has_projects: true
+    docs:
+        description: Documentation

@@ -21,7 +21,7 @@ jobs:
         run: cp peribolos.yaml /tmp
       
       - name: Checkout ghproxy and peribolos code
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.repository_owner == 'huiwangredaht' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: actions/checkout@v4
         with:
           repository: kubernetes-sigs/prow

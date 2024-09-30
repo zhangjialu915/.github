@@ -6,10 +6,10 @@ orgs:
     has_repository_projects: true
     members_can_create_repositories: true
     admins:
-    - huiwangredhat
+      - huiwangredhat
     members:
-    - huiwangredhat
-    - RichardXuan
+      - huiwangredhat
+      - RichardXuan
     repos:
       ".github":
         default_branch: main

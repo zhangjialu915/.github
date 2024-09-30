@@ -21,7 +21,10 @@ jobs:
         
 
       - name: cp peribolos
-        run: cp peribolos.yml /tmp
+        run: |
+          pwd
+          ls
+          cp peribolos.yml /tmp
         working-directory: src/.github
       
   

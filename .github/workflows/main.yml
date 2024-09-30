@@ -17,9 +17,13 @@ jobs:
       - name: Checkout auto-manage-org/.github repo
         uses: actions/checkout@v4
         with:
-          path: .github
+          path: src/.github
+        
+
+      - name: cp peribolos
         run: cp peribolos.yml /tmp
-        working-directory: .github
+        working-directory: src/.github
+      
   
       - name: Checkout ghproxy and peribolos code
         if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}

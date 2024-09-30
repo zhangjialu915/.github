@@ -39,7 +39,7 @@ jobs:
         run: |
           cd cmd/peribolos
           go mod tidy
-          go build -o  .
+          go build -o peribolos .
           cp peribolos /tmp
         
       - name: Apply peribolos.yaml

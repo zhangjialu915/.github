@@ -21,7 +21,7 @@ jobs:
         run: |
           pwd
           ls
-          cp peribolos.yml /tmp
+          cp peribolos.yaml /tmp
       
       - name: Checkout ghproxy and peribolos code
         if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -40,19 +40,19 @@ jobs:
       - name: Build peribolos
         if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
-          cd cmd/peribolos
+          cd cmd/
           go mod tidy
-          go build -o peribolos .
-          cp peribolos /tmp
+          go build -o  .
+          cp  /tmp
         
-      - name: Apply peribolos.yml
+      - name: Apply peribolos.yaml
         if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           echo ${{ secrets.HELM_INDEXER_TOKEN  }} > auth.txt
           /tmp/ghproxy --legacy-disable-disk-cache-partitions-by-auth-header=false --get-throttling-time-ms=300 --throttling-time-ms=900 --throttling-time-v4-ms=850 --throttling-max-delay-duration-seconds=45 --throttling-max-delay-duration-v4-seconds=110 --request-timeout=120 1>/dev/null 2>&1 &
           pid=$!
           jobs
-          /tmp/peribolos -config-path /tmp/peribolos.yml  --fix-org --fix-org-members --fix-teams --fix-team-members --github-token-path auth.txt --github-endpoint http://localhost:8888 --confirm 2>&1 | jq -r '[.severity, .time, .msg] | join(" | ")'
+          /tmp/peribolos -config-path /tmp/peribolos.yaml  --fix-org --fix-org-members --fix-teams --fix-team-members --github-token-path auth.txt --github-endpoint http://localhost:8888 --confirm 2>&1 | jq -r '[.severity, .time, .msg] | join(" | ")'
           kill $pid
           rm auth.txt
       

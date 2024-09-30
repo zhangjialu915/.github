@@ -9,6 +9,7 @@ orgs:
     - huiwangredhat
     members:
     - huiwangredhat
+    - RichardXuan
     repos:
       ".github":
         default_branch: main

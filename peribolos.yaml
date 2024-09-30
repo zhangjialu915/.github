@@ -7,8 +7,8 @@ orgs:
     members_can_create_repositories: true
     admins:
       - huiwangredhat
+      - jihupdc
     members:
-      - huiwangredhat
       - RichardXuan
     repos:
       ".github":

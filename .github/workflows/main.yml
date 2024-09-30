@@ -18,7 +18,10 @@ jobs:
         uses: actions/checkout@v4
         
       - name: cp peribolos
-        run: cp peribolos.yml /tmp
+        run: |
+          pwd
+          ls
+          cp peribolos.yml /tmp
       
       - name: Checkout ghproxy and peribolos code
         if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}

@@ -41,6 +41,7 @@ jobs:
           go mod tidy
           go build -o peribolos .
           cp peribolos /tmp
+      
         
       - name: Apply peribolos.yaml
         if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}

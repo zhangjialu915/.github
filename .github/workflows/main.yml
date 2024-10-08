@@ -21,13 +21,13 @@ jobs:
         run: cp peribolos.yaml /tmp
       
       - name: Checkout ghproxy and peribolos code
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        #if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: actions/checkout@v4
         with:
           repository: kubernetes-sigs/prow
 
       - name: Build ghproxy
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        #if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           cd cmd/ghproxy
           go mod tidy
@@ -35,7 +35,7 @@ jobs:
           cp ghproxy /tmp
 
       - name: Build peribolos
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        #if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           cd cmd/peribolos
           go mod tidy

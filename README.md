@@ -1,1 +1,1 @@
-This is the inital config for orgnization of complytime.
+This is the inital config for orgnization of complytime demo.

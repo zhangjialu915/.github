@@ -26,13 +26,13 @@ jobs:
         with:
           repository: kubernetes-sigs/prow
 
-      - name: Build ghproxy
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        run: |
-          cd cmd/ghproxy
-          go mod tidy
-          go build -o ghproxy .
-          cp ghproxy /tmp
+      #- name: Build ghproxy
+      #  if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      #  run: |
+      #    cd cmd/ghproxy
+      #    go mod tidy
+      #    go build -o ghproxy .
+      #    cp ghproxy /tmp
 
       - name: Build peribolos
         if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}

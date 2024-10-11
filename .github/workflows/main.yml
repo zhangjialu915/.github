@@ -59,7 +59,7 @@ jobs:
           pid=$!
           jobs
           echo "This is a testinggggggg......"
-          /tmp/peribolos -config-path /tmp/peribolos.yaml  --fix-org --fix-org-members --fix-repos --github-token-path auth.txt --github-endpoint http://localhost:8888 --confirm 2>&1 | jq -r '[.severity, .time, .msg] | join(" | ")'
+          /tmp/peribolos -config-path /tmp/peribolos.yaml  --fix-org --fix-org-members --fix-repos --github-token-path auth.txt --confirm 2>&1 | jq -r '[.severity, .time, .msg] | join(" | ")'
           kill $pid
           rm auth.txt
       

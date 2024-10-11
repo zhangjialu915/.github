@@ -14,7 +14,7 @@ orgs:
       ".github":
         default_branch: main
         description: demo
-      "test":
+      test:
         default_branch: main
         description: test-org-management
     docs:

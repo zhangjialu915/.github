@@ -14,10 +14,8 @@ orgs:
       ".github":
         default_branch: main
         description: demo
-        has_projects: true
       "test-org-management":
         default_branch: main
         description: test-org-management
-        has_projects: true
     docs:
         description: Documentation

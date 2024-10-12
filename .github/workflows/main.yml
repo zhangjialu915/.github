@@ -60,7 +60,7 @@ jobs:
         
       - name: Apply peribolos.yaml
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         if: ${{ github.repository_owner == 'zhangjialu915' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           echo $GITHUB_TOKEN > auth.txt

@@ -48,7 +48,7 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: zjlwmz  # 替换为你的仓库所有者
+          owner: zhangjialu915  # 替换为你的仓库所有者
           repositories: .github  # 替换为你的仓库名称
           
       - name: out  token Test

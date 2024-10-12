@@ -48,6 +48,10 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        run: |
+          echo "App ID: ${{ vars.APP_ID }}"
+          echo "Private Key: ${{ secrets.APP_PRIVATE_KEY }}"
+          echo "Generated Token: ${{ steps.app-token.outputs.token }}"
         
       - name: Apply peribolos.yaml
         env:

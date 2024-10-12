@@ -14,20 +14,20 @@ jobs:
         with:
           go-version: "1.23"
           
-      - name: Checkout auto-manage-org/.github repo
+      - name: Checkout zhangjialu915/.github repo
         uses: actions/checkout@v4
         
       - name: Copy peribolos.yaml
         run: cp peribolos.yaml /tmp
       
       - name: Checkout ghproxy and peribolos code
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.repository_owner == 'zhangjialu915' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: actions/checkout@v4
         with:
           repository: kubernetes-sigs/prow
 
       - name: Build ghproxy
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.repository_owner == 'zhangjialu915' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           cd cmd/ghproxy
           go mod tidy
@@ -35,7 +35,7 @@ jobs:
           cp ghproxy /tmp
 
       - name: Build peribolos
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.repository_owner == 'zhangjialu915' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           cd cmd/peribolos
           go mod tidy
@@ -52,7 +52,7 @@ jobs:
       - name: Apply peribolos.yaml
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-        if: ${{ github.repository_owner == 'auto-manage-org' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.repository_owner == 'zhangjialu915' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           echo $GITHUB_TOKEN > auth.txt
           /tmp/ghproxy --legacy-disable-disk-cache-partitions-by-auth-header=false --get-throttling-time-ms=300 --throttling-time-ms=900 --throttling-time-v4-ms=850 --throttling-max-delay-duration-seconds=45 --throttling-max-delay-duration-v4-seconds=110 --request-timeout=120 1>/dev/null 2>&1 &

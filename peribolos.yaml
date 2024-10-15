@@ -9,7 +9,7 @@ orgs:
       - wanghuiredhat
       - zjlwmz
     members:
-      - zjlwmz
+      - zjlwmz001
     repos:
       ".github":
         default_branch: main

@@ -9,7 +9,7 @@ orgs:
       - zjlwmz
       - zjlwm
     members:
-      - someOtherMember
+      - zjlwm
     repos:
       ".github":
         default_branch: main

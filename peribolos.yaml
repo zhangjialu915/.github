@@ -6,17 +6,17 @@ orgs:
     has_repository_projects: true
     members_can_create_repositories: true
     admins:
-    - zjlwmz
-    - zjlwm
+      - zjlwmz
+      - zjlwm
     members:
-    
-    repos:
-      ".github":
-        default_branch: main
-        description: demo
-        private: false
-      test:
-        default_branch: main
-        description: test-org-management
-    docs:
-        description: Documentation
+      - 4n4nd
+    # repos:
+    #   ".github":
+    #     default_branch: main
+    #     description: demo
+    #     private: false
+    #   test:
+    #     default_branch: main
+    #     description: test-org-management
+    # docs:
+    #     description: Documentation

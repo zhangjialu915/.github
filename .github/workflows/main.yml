@@ -44,9 +44,10 @@ jobs:
 
       - name: Get Installation ID
         run: |
-           response=$(curl -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/app/installations")
-           installation_id=$(echo $response | jq -r '.[] | select(.account.login=="your_org_name") |.id')
-           echo "installation_id=$installation_id" >> $GITHUB_ENV
+         response=$(curl -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/app/installations")
+         installation_id=$(echo $response | jq -r '.[] | select(.account.login=="your_org_name") |.id')
+         echo "installation_id=$installation_id" >> $GITHUB_ENV
+    
        
       - name: Generate GitHub App user access token
         run: |

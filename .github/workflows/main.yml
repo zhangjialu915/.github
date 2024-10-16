@@ -87,6 +87,6 @@ jobs:
           # kill $pid
 
           # /tmp/peribolos -config-path /tmp/peribolos.yaml  --github-token-path ./auth.txt --confirm 2>&1 | jq -r '[.severity, .time, .msg] | join(" | ")'
-          peribolos --github-token-path /.auth.txt --config-path "/tmp/peribolos.yaml" --fix-org --fix-org-members --fix-teams --fix-team-members --confirm --min-admins=2
+          /tmp/peribolos --github-token-path /.auth.txt --config-path "/tmp/peribolos.yaml" --fix-org --fix-org-members --fix-teams --fix-team-members --confirm --min-admins=2
           rm /.auth.txt
       

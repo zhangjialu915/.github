@@ -48,28 +48,29 @@ jobs:
       #        curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" https://api.github.com/app/installations/56040409/access_tokens
       #        # 将上面的 {{ installation_id }} 替换为实际的 GitHub App 安装 ID
        
-      - name: Generate a token
-        id: generate-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: zhangjialu915  #  替换为你的仓库所有者
-          repositories: .github  # 替换为你的仓库名称
+      # - name: Generate a token
+      #   id: generate-token
+      #   uses: actions/create-github-app-token@v1
+      #   with:
+      #     app-id: ${{ vars.APP_ID }}
+      #     private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      #     owner: zhangjialu915  #  替换为你的仓库所有者
+      #     repositories: .github  # 替换为你的仓库名称
 
           
-      - name: out  token Test
-        run: |
-          echo $GITHUB_TOKEN > auth.txt
-          echo "App ID: ${{ vars.APP_ID }}"
-          echo "Private Key: ${{ secrets.APP_PRIVATE_KEY }}"
-          echo "Generated Token: ${{ steps.generate-token.outputs.token }}"
+      # - name: out  token Test
+      #   run: |
+      #     echo $GITHUB_TOKEN > auth.txt
+      #     echo "App ID: ${{ vars.APP_ID }}"
+      #     echo "Private Key: ${{ secrets.APP_PRIVATE_KEY }}"
+      #     echo "Generated Token: ${{ steps.generate-token.outputs.token }}"
 
 
       # Step 3: Write the token to auth.txt and check its content
       - name: Write token to auth.txt and output its content
         run: |
-          echo "${{ steps.generate-token.outputs.token }}" > auth.txt
+          # echo "${{ steps.generate-token.outputs.token }}" > auth.txt
+          echo "${{ secrets.access_token }}" > auth.txt
           echo "Content of auth.txt:"
           cat auth.txt
         

@@ -6,10 +6,10 @@ orgs:
     has_repository_projects: true
     members_can_create_repositories: true
     admins:
-      - zjlwmz
-      - zjlwm
+    - zjlwmz
+    - zjlwm
     members:
-      - zjlwm
+    
     repos:
       ".github":
         default_branch: main

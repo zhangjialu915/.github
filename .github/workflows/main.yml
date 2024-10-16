@@ -41,18 +41,12 @@ jobs:
           go mod tidy
           go build -o peribolos .
           cp peribolos /tmp
-
-      - name: Get Installation ID
-        run: |
-         response=$(curl -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/app/installations")
-         installation_id=$(echo $response | jq -r '.[] | select(.account.login=="your_org_name") |.id')
-         echo "installation_id=$installation_id" >> $GITHUB_ENV
     
        
-      - name: Generate GitHub App user access token
-        run: |
-             curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" https://api.github.com/app/installations/${{ env.installation_id }}/access_tokens
-             # 将上面的 {{ installation_id }} 替换为实际的 GitHub App 安装 ID
+      # - name: Generate GitHub App user access token
+      #   run: |
+      #        curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" https://api.github.com/app/installations/56040409/access_tokens
+      #        # 将上面的 {{ installation_id }} 替换为实际的 GitHub App 安装 ID
        
       - name: Generate a token
         id: generate-token
@@ -81,7 +75,7 @@ jobs:
         
       - name: Apply peribolos.yaml
         env:
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.access_token }}" #${{ steps.generate-token.outputs.token }}
         if: ${{ github.repository_owner == 'zhangjialu915' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           echo $GITHUB_TOKEN > auth.txt

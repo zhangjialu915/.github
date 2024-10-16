@@ -69,9 +69,9 @@ jobs:
       # Step 3: Write the token to auth.txt and check its content
       - name: Write token to auth.txt and output its content
         run: |
-          # echo "${{ steps.generate-token.outputs.token }}" > /.auth.txt
-          echo ${{ secrets.ACCESS_TOKEN }} > /.github_token.txt
-          echo "Content of auth.txt:"
+          # echo "${{ steps.generate-token.outputs.token }}" > ./github_token.txt
+          echo ${{ secrets.ACCESS_TOKEN }} > ./github_token.txt
+          echo "Content of github_token.txt:"
           cat auth.txt
         
       - name: Apply peribolos.yaml
@@ -87,6 +87,6 @@ jobs:
           # kill $pid
 
           # /tmp/peribolos -config-path /tmp/peribolos.yaml  --github-token-path ./auth.txt --confirm 2>&1 | jq -r '[.severity, .time, .msg] | join(" | ")'
-          /tmp/peribolos --github-token-path /.github_token.txt --config-path "/tmp/peribolos.yaml" --fix-org --fix-org-members --fix-teams --fix-team-members --confirm --min-admins=2
+          /tmp/peribolos --github-token-path ./github_token.txt --config-path "/tmp/peribolos.yaml" --fix-org --fix-org-members --fix-teams --fix-team-members --confirm --min-admins=2
           rm /.auth.txt
       

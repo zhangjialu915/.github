@@ -72,7 +72,7 @@ jobs:
           # echo "${{ steps.generate-token.outputs.token }}" > ./github_token.txt
           echo ${{ secrets.ACCESS_TOKEN }} > ./github_token.txt
           echo "Content of github_token.txt:"
-          cat auth.txt
+          cat ./github_token.txt
         
       - name: Apply peribolos.yaml
         env:

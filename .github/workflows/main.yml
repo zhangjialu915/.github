@@ -79,6 +79,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}" #${{ steps.generate-token.outputs.token }}
         if: ${{ github.repository_owner == 'zhangjialu915' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
+          echo $GITHUB_TOKEN
           echo $GITHUB_TOKEN > ./github_token.txt
           # /tmp/ghproxy --legacy-disable-disk-cache-partitions-by-auth-header=false --get-throttling-time-ms=300 --throttling-time-ms=900 --throttling-time-v4-ms=850 --throttling-max-delay-duration-seconds=45 --throttling-max-delay-duration-v4-seconds=110 --request-timeout=120 1>/dev/null 2>&1 &
           # pid=$!
